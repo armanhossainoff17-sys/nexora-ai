@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b14">
+  <meta name="description" content="Nexora AI helps you write, plan, create and build with AI.">
+  <title>Nexora AI — Make ideas happen</title>
+  
+<style>
+    :root{--bg:#090b14;--panel:#111421;--panel2:#171b2b;--line:#272b40;--text:#f5f6ff;--muted:#a0a6bf;--purple:#9b8cff;--cyan:#65e5d4;--pink:#ff8bc8}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#292054 0,transparent 40%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+    
+button,textarea{font:inherit}button{cursor:pointer}.shell{max-width:1180px;margin:auto;padding:0 26px}
+    header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff10}
+    .brand{display:flex;gap:11px;align-items:center;font-weight:800;font-size:20px;letter-spacing:-.6px}.logo{width:35px;height:35px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--cyan)
+);display:grid;place-items:center;color:#0a0c16;font-weight:900;font-size:18px;box-shadow:0 0 28px #9b8cff35}
+    .brand span:last-child{color:var(--purple)}.topright{display:flex;gap:10px;align-items:center}.badge{font-size:12px;color:var(--cyan);border:1px solid #65e5d44a;padding:7px 10px;border-radius:99px}
+    .hero{text-align:center;padding:68px 0 35px}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#d6d1ff;border:1px solid 
+#9b8cff45;background:#9b8cff10;padding:8px 13px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.4px}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.02;letter-spacing:-3.5px;margin:23px auto 18px;max-width:850px}h1 em{font-style:normal;background:linear-gradient(90deg,var(--purple),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+    
+.sub{color:var(--muted);font-size:17px;line-height:1.7;max-width:650px;margin:0 auto}.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:20px;padding:24px 0 65px}
+    .sidebar,.workarea{background:linear-gradient(180deg,#121525f5,#0e111df5);border:1px solid var(--line);border-radius:22px;box-shadow:0 20px 80px #0002}.sidebar{padding:17px;height:max-content}.label{color:#777f9e;font-size:10px;font-weight:800;letter-spacing:1.6px;margin:9px 10px 
+12px}
+    .tool{width:100%;display:flex;align-items:center;gap:12px;border:1px solid transparent;background:transparent;color:#b9bfd5;padding:12px;border-radius:12px;text-align:left;margin:3px 0;transition:.18s}.tool:hover{background:#ffffff08;color:white}.tool.active{background:linear-gradient(90deg,#9b8cff20,#65e5d40c);border-color:#9b8cff55;color:white}.icon{width:34px;height:34px;border-radius:10px;background:#ffffff0b;display:grid;place-items:center;font-size:17px}.t
+ool.active .icon{background:#9b8cff20}.tool strong{display:block;font-size:13px}.tool small{display:block;color:#838aa6;font-size:11px;margin-top:3px}
+    .sidefoot{border-top:1px solid var(--line);margin-top:20px;padding:17px 8px 4px;color:#8d94ad;font-size:12px;line-height:1.6}.statusdot{display:inline-block;width:7px;height:7px;background:#f3bd69;border-radius:50%;margin-right:6px}
+    .workarea{min-height:550px;padding:25px;display:flex;flex-direction:column}.workhead{display
+:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:21px;border-bottom:1px solid var(--line)}.workhead h2{margin:0;font-size:21px;letter-spacing:-.5px}.workhead p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.tiny{font-size:11px;color:#9ea5c0;border:1px solid var(--line);border-radius:99px;padding:7px 10px;white-space:nowrap}
+    
+.promptlabel{display:flex;justify-content:space-between;color:#dce0f2;font-size:13px;font-weight:700;margin:23px 0 10px}.promptlabel span{color:#737b99;font-weight:500;font-size:11px}
+    textarea{width:100%;resize:vertical;min-height:150px;background:#0b0e19;border:1px solid #30344c;border-radius:15px;padding:17px;color:var(--text);line-height:1.6;outline:none;transition:.2s}textarea:focus{border-color:#9b8cff;box-sha
+dow:0 0 0 3px #9b8cff18}textarea::placeholder{color:#69718d}
+    .examples{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}.chip{background:#ffffff05;border:1px solid #2b3047;color:#aeb5ce;padding:8px 11px;border-radius:99px;font-size:11px}.chip:hover{border-color:#9b8cff;color:#fff}
+    .primary{border:0;border-radius:13px;padding:14px 
+18px;color:#0b0d17;background:linear-gradient(100deg,#a99aff,#65e5d4);font-weight:800;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 8px 28px #9b8cff22}.primary:hover{filter:brightness(1.06);transform:translateY(-1px)}.primary:disabled{opacity:.6;cursor:wait;transform:none}
+    .result{margin-top:23px;display:none;border:1px solid #30344c;border-radius:15px;overflow:hidden;background:#0b0e19}.result.show{display:block}.re
+sulthead{padding:13px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:12px;font-weight:800}.resultbody{padding:17px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.75;font-size:14px;color:#e0e4f5;min-height:80px}.copy{background:#ffffff08;border:1px solid #30344c;color:#c5cbe0;border-radius:8px;padding:6px 10px;font-size:11px}.notice{display:none;color:#f4c37b;font-size:12px;line-height:1.6;paddin
+g:12px 14px;border:1px solid #f4c37b30;background:#f4c37b09;border-radius:12px;margin-top:14px}.notice.show{display:block}
+    .bottom{text-align:center;color:#737b95;font-size:12px;padding:0 0 30px}.bottom strong{color:#b7bdd5}.feature-row{display:flex;justify-content:center;flex-wrap:wrap;gap:17px;margin-top:24px;color:#9ba2bc;font-size:12px}.feature-row 
+span:before{content:"✓";color:var(--cyan);margin-right:7px}
+    @media(max-width:760px){.shell{padding:0 14px}header{height:66px}.badge{display:none}.hero{padding:48px 0 22px}h1{letter-spacing:-2px}.sub{font-size:15px}.layout{grid-template-columns:1fr;gap:12px;padding-top:15px}.sidebar{display:flex;gap:7px;overflow-x:auto;padding:10px;border-radius:16px}.sidebar .label,.sidefoot{display:none}.tool{min-width:100px;width:auto;display:block;text-align:center;padding:9px 
+12px;margin:0}.tool .icon{margin:0 auto 6px}.tool strong{font-size:11px}.tool small{display:none}.workarea{padding:17px;min-height:500px}.workhead h2{font-size:19px}.tiny{font-size:10px}.hero h1{font-size:46px}.feature-row{gap:10px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand"><div class="logo">N</div><div>NEXORA 
+<span>AI</span></div></div>
+      <div class="topright"><div class="badge">✦ Your ideas, accelerated</div></div>
+    </header>
+    <section class="hero">
+      <div class="eyebrow">✦ YOUR CREATIVE AI WORKSPACE</div>
+      <h1>Make ideas<br><em>happen.</em></h1>
+      <p class="sub">One workspace for writing, business, social media and your next big idea. Tell Nexora what you need and get moving.</p>
+      <div 
+class="feature-row"><span>Simple to use</span><span>Multiple AI tools</span><span>Made for creators</span></div>
+    </section>
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="label">WORKSPACE</div>
+        <button class="tool active" data-mode="chat"><div class="icon">✦</div><strong>AI Chat</strong><small>Ask anything</small></button>
+        <button class="tool" data-mode="writer"><div 
+class="icon">✍️</div><strong>AI Writer</strong><small>Words that work</small></button>
+        <button class="tool" data-mode="social"><div class="icon">▶</div><strong>Social Studio</strong><small>Content ideas</small></button>
+        <button class="tool" data-mode="business"><div class="icon">◈</div><strong>Business AI</strong><small>Build your plan</small></button>
+        <button class="tool" data-mode="cv"><div 
+class="icon">▤</div><strong>CV Builder</strong><small>Career documents</small></button>
+      </aside>
+      <section class="workarea">
+        <div class="workhead">
+          <div><h2 id="toolTitle">AI Chat</h2><p id="toolDesc">A helpful assistant for questions, ideas and problem-solving.</p></div>
+          <div class="tiny">✦ AI workspace</div>
+        </div>
+        <div class="promptlabel">Your prompt <span id="counter">0 / 
+8,000</span></div>
+        <textarea id="prompt" maxlength="8000" placeholder="Ask a question, explore an idea, or tell Nexora what you want to create..."></textarea>
+        <div class="examples" id="examples">
+          <button class="chip">Give me 5 online business ideas</button>
+          <button class="chip">Explain a difficult topic simply</button>
+          <button class="chip">Help me plan my week</button>
+        </div>
+        <button class="primary" 
+id="generate">✦ Generate response <span>→</span></button>
+        <div class="notice" id="notice"></div>
+        <div class="result" id="result">
+          <div class="resulthead"><span>✦ NEXORA RESPONSE</span><button class="copy" id="copy">Copy text</button></div>
+          <div class="resultbody" id="output"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="bottom">NEXORA AI · 
+<strong>Make ideas happen.</strong><br>AI can make mistakes. Check important information before relying on it.</footer>
+  </div>
+  <script>
+    const config = {
+      chat: {title:"AI Chat", desc:"A helpful assistant for questions, ideas and problem-solving.", placeholder:"Ask a question, explore an idea, or tell Nexora what you want to create...", examples:["Give me 5 online business ideas","Explain a difficult topic simply","Help me plan my week"], 
+button:"Generate response"},
+      writer: {title:"AI Writer", desc:"Draft clearer emails, captions, product descriptions and more.", placeholder:"Tell me what you need to write, who it is for, and the tone you want...", examples:["Write a professional email asking for an update","Create a product description for trainers","Write a friendly Instagram caption"], button:"Write for me"},
+      social: {title:"Social Studio", desc:"Turn your ideas into hooks, scripts, captions and content plans.", placeholder:"Choose a platform and 
+describe your video, topic or audience...", examples:["Write a 30-second football Short script","Give me 10 TikTok ideas for a clothing shop","Create a YouTube title and description"], button:"Create content"},
+      business: {title:"Business AI", desc:"Explore practical ideas, marketing strategies and business plans.", placeholder:"Describe your business, product or challenge. Include your budget if relevant...", examples:["Make a simple plan for an online shop","Suggest marketing ideas for a local café","Compare three low-cost business 
+ideas"], button:"Build my plan"},
+      cv: {title:"CV Builder", desc:"Create a professional CV summary, experience section or cover letter.", placeholder:"Share your real experience, skills and the role you want to apply for. Avoid sensitive personal data...", examples:["Write a cover letter for a retail job","Improve this CV summary: [paste your text]","Help describe customer service experience"], button:"Create career document"}
+    };
+    let mode = "chat";
+    const promptEl = 
+document.getElementById("prompt");
+    const generateBtn = document.getElementById("generate");
+    const notice = document.getElementById("notice");
+    const result = document.getElementById("result");
+    const output = document.getElementById("output");
+    function setMode(next) {
+      mode = next;
+      document.querySelectorAll(".tool").forEach(b => b.classList.toggle("active", b.dataset.mode === 
+mode));
+      const c = config[mode];
+      document.getElementById("toolTitle").textContent = c.title;
+      document.getElementById("toolDesc").textContent = c.desc;
+      promptEl.placeholder = c.placeholder;
+      generateBtn.innerHTML = "✦ " + c.button + " <span>→</span>";
+      document.getElementById("examples").innerHTML = c.examples.map(x => 
+`<button class="chip"></button>`).join("");
+      [...document.querySelectorAll(".chip")].forEach((b,i) => { b.textContent = c.examples[i]; b.addEventListener("click", () => { promptEl.value = c.examples[i]; updateCount(); promptEl.focus(); }); });
+      notice.classList.remove("show"); result.classList.remove("show");
+    }
+    document.querySelectorAll(".tool").forEach(b => b.addEventListener("click", () 
+=> setMode(b.dataset.mode)));
+    document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { promptEl.value=b.textContent; updateCount(); }));
+    function updateCount(){document.getElementById("counter").textContent = `${promptEl.value.length.toLocaleString()} / 8,000`;}
+    promptEl.addEventListener("input", updateCount);
+    generateBtn.addEventListener("click", async () => 
+{
+      const prompt = promptEl.value.trim();
+      notice.classList.remove("show");
+      if (!prompt) { notice.textContent = "Write a prompt first, or choose one of the example prompts."; notice.classList.add("show"); promptEl.focus(); return; }
+      generateBtn.disabled = true; generateBtn.textContent = "✦ Working on it...";
+      result.classList.add("show"); output.textContent = "Generating your 
+response…";
+      try {
+        const res = await fetch("/api/generate", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({mode,prompt})});
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Something went wrong.");
+        output.textContent = data.output;
+      } catch (e) {
+        output.textContent = "";
+        notice.textContent = e.message || 
+"Could not generate a response. Please try again.";
+        notice.classList.add("show");
+        result.classList.remove("show");
+      } finally {
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = "✦ " + config[mode].button + " <span>→</span>";
+      }
+    });
+    document.getElementById("copy").addEventListener("click", async () => {
+      try { await 
+navigator.clipboard.writeText(output.textContent); document.getElementById("copy").textContent = "Copied!"; setTimeout(()=>document.getElementById("copy").textContent="Copy text",1300); }
+      catch { document.getElementById("copy").textContent = "Select text to copy"; }
+    });
+  </script>
+</body>
+</html>
